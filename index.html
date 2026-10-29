@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Advogado Trabalhista em Maringá e no Paraná | Sílvio Filho Advocacia</title>
+<meta name="description" content="Orientação jurídica para trabalhadores em Maringá e em todo o Paraná: justa causa, rescisão indireta, assédio moral, acidente de trabalho e doença ocupacional.">
+<link rel="canonical" href="https://silvio-filho-advocacia.vercel.app/">
+<meta name="theme-color" content="#0A1628">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Sílvio Filho Advocacia — Direito do Trabalho">
+<meta property="og:description" content="Orientação jurídica para trabalhadores em Maringá e em todo o Paraná.">
+<meta property="og:image" content="/img/og.jpg">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+<!--
+  ============================================================================
+  SÍLVIO FILHO ADVOCACIA — LP Trabalhista (Meta Ads, Paraná)
+  ============================================================================
+  ANTES DE ATIVAR AS CAMPANHAS:
+  1. WhatsApp: número oficial no CONFIG do redirect.html (só dígitos, 55+DDD).
+  2. OAB: inserir a inscrição no rodapé (procure por "OAB" neste arquivo).
+  3. Política de privacidade: texto a ser revisado pelo escritório; quando
+     existir, ligar o link do rodapé e do formulário.
+  4. Pixel do Meta: colar o código base no <head> deste arquivo e do
+     redirect.html. O evento "Lead" já é disparado no redirect.html
+     (nenhum dado pessoal é enviado ao pixel).
+  5. DADOS: visitas e leads vão para o Supabase "ADS BR CLIENTES"
+     (qxhnjzyhtllmtdrcyygi), tabelas lp_visits / lp_leads, site="silvio-filho".
+  6. FLUXO: formulário -> /redirect (3s) -> WhatsApp do escritório.
+  7. FOTOS: banco Freepik (licença gratuita, crédito no rodapé). São baixadas
+     no build da Vercel (scripts/build.mjs) e servidas pela própria Vercel.
+  ============================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/img/fotos/hero-1400.webp" imagesrcset="/img/fotos/hero-800.webp 800w, /img/fotos/hero-1400.webp 1400w" imagesizes="(max-width: 900px) 100vw, 60vw" fetchpriority="high">
+
+<style>
+:root{
+  --navy-950:#060E1A;
+  --navy:#0A1628;
+  --navy-800:#0F1E35;
+  --navy-700:#16294A;
+  --gold:#C9A46A;
+  --gold-hi:#E6CD9B;
+  --gold-lo:#9E7B45;
+  --gold-grad:linear-gradient(100deg,#A9864E 0%,#E6CD9B 45%,#C49C5F 70%,#9E7B45 100%);
+  --cream:#F4EEE3;
+  --paper:#FBF8F2;
+  --ink:#0A1628;
+  --text:#2B3445;
+  --muted:#556072;
+  --line:#E2D8C6;
+  --line-dark:rgba(201,164,106,.22);
+  --on-dark:#F4EEE3;
+  --on-dark-2:#C3C9D3;
+  --r:14px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --wrap:1200px;
+  --pad:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--text);font-family:Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;color:var(--ink)}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* ---------- tipografia ---------- */
+.kicker{font-family:Marcellus,Georgia,serif;font-size:14px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-lo);display:block;margin-bottom:16px}
+.dark .kicker,.kicker.on-dark{color:var(--gold)}
+.t-xl,.t-lg{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.06}
+.t-xl{font-size:clamp(36px,6.2vw,66px)}
+.t-lg{font-size:clamp(28px,4.2vw,44px)}
+.ouro{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.filete{display:block;width:96px;height:2px;background:var(--gold-grad);margin:24px 0}
+.lead{font-size:clamp(17px,1.6vw,19px);color:var(--text)}
+.dark{background:var(--navy);color:var(--on-dark-2)}
+.dark h1,.dark h2,.dark h3{color:var(--on-dark)}
+.dark .lead{color:var(--on-dark-2)}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:15px 30px;border-radius:4px;font:700 15px/1.2 Montserrat,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background-position .4s var(--ease)}
+.btn-ouro{color:var(--navy);background:var(--gold-grad);background-size:160% 100%;box-shadow:0 10px 26px -12px rgba(201,164,106,.65)}
+.btn-ouro:hover{background-position:100% 0;transform:translateY(-2px);box-shadow:0 16px 32px -14px rgba(201,164,106,.8)}
+.btn-linha{color:var(--on-dark);background:transparent;box-shadow:inset 0 0 0 1.5px rgba(244,238,227,.45)}
+.btn-linha:hover{box-shadow:inset 0 0 0 1.5px var(--gold);color:var(--gold-hi)}
+.btn svg{width:18px;height:18px;flex:none}
+.seta{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--gold-lo);min-height:44px}
+.seta svg{transition:transform .2s var(--ease)}
+.seta:hover svg{transform:translateX(4px)}
+
+/* ---------- topo ---------- */
+.topo{position:sticky;top:0;z-index:50;background:rgba(10,22,40,.96);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line-dark)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
+.topo .marca img{height:30px;width:auto}
+@media (min-width:420px){.topo .marca img{height:36px}}
+@media (min-width:960px){.topo .marca img{height:44px}}
+.topo nav{display:none;gap:32px}
+.topo nav a{color:var(--on-dark-2);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.04em}
+.topo nav a:hover{color:var(--gold-hi)}
+.topo .btn{min-height:44px;padding:10px 14px;font-size:11px;letter-spacing:.05em;white-space:nowrap}
+.topo .marca{flex:none}
+@media (min-width:960px){.topo nav{display:flex}.topo .btn{padding:12px 22px;font-size:13px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--navy);overflow:hidden;isolation:isolate}
+.hero__foto{position:relative;aspect-ratio:4/3;max-height:58vh;width:100%}
+.hero__foto img{width:100%;height:100%;object-fit:cover;object-position:60% 30%}
+.hero__foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,0) 40%,rgba(10,22,40,.85) 85%,var(--navy) 100%)}
+.hero__texto{position:relative;padding:0 0 64px;margin-top:-72px;text-align:center}
+.hero__texto .filete{margin:22px auto}
+.hero__texto .lead{max-width:560px;margin:0 auto}
+.hero__ctas{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.hero__ctas .btn{width:100%}
+.selos{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:12px;color:var(--on-dark-2);font-size:14px;text-align:left;max-width:420px;margin-left:auto;margin-right:auto}
+.selos li{display:flex;gap:12px;align-items:center}
+.selos svg{flex:none;width:20px;height:20px;color:var(--gold)}
+@media (min-width:900px){
+  .hero{min-height:min(760px,calc(100vh - 76px));display:flex;align-items:center}
+  .hero__foto{position:absolute;inset:0 0 0 38%;aspect-ratio:auto;max-height:none;height:100%}
+  .hero__foto img{object-position:50% 25%}
+  .hero__foto::after{background:linear-gradient(90deg,var(--navy) 0%,rgba(10,22,40,.92) 14%,rgba(10,22,40,.35) 50%,rgba(10,22,40,.05) 100%),linear-gradient(0deg,rgba(10,22,40,.55),rgba(10,22,40,0) 40%)}
+  .hero__texto{margin:0;padding:96px 0;text-align:left;max-width:640px}
+  .hero__texto .filete{margin:28px 0}
+  .hero__texto .lead{margin:0}
+  .hero__ctas{flex-direction:row;flex-wrap:wrap}
+  .hero__ctas .btn{width:auto}
+  .selos{grid-template-columns:repeat(3,auto);gap:24px;max-width:none;margin-left:0}
+}
+
+/* ---------- faixa de confiança ---------- */
+.faixa{background:var(--cream);border-bottom:1px solid var(--line)}
+.faixa ul{list-style:none;margin:0;padding:28px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}
+.faixa li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink);line-height:1.35}
+.faixa svg{width:28px;height:28px;color:var(--gold-lo)}
+@media (min-width:900px){.faixa ul{grid-template-columns:repeat(4,minmax(0,1fr));padding:32px 0}.faixa li{flex-direction:row;text-align:left;justify-content:center}}
+
+/* ---------- seções ---------- */
+.sec{padding:80px 0}
+@media (min-width:900px){.sec{padding:120px 0}}
+.cab{text-align:center;max-width:760px;margin:0 auto 48px}
+.cab .filete{margin:22px auto}
+@media (min-width:900px){.cab.esq{text-align:left;margin-left:0}.cab.esq .filete{margin-left:0}}
+
+/* ---------- situações (mosaico) ---------- */
+.mosaico{display:grid;gap:14px}
+.card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:340px;border-radius:var(--r);overflow:hidden;background:var(--navy-800);color:var(--on-dark);text-decoration:none;isolation:isolate}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s var(--ease)}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,14,26,.05) 15%,rgba(6,14,26,.62) 55%,rgba(6,14,26,.94) 100%)}
+.card:hover img{transform:scale(1.04)}
+.card__corpo{padding:26px 24px}
+.card__n{font-family:Marcellus,serif;color:var(--gold);font-size:15px;letter-spacing:.2em}
+.card h3{color:#fff;font-weight:800;text-transform:uppercase;font-size:22px;line-height:1.15;margin:8px 0 10px}
+.card p{color:#D5DAE2;font-size:15px;line-height:1.55}
+.card .seta{color:var(--gold-hi);margin-top:12px}
+@media (min-width:700px){.mosaico{grid-template-columns:repeat(2,minmax(0,1fr))}.card:last-child{grid-column:1/-1}}
+@media (min-width:1000px){
+  .mosaico{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:minmax(250px,auto)}
+  .card{grid-column:span 2;min-height:400px}
+  .card.g{grid-column:span 3;min-height:440px}
+  .card:last-child{grid-column:span 2}
+  .card h3{font-size:24px}
+}
+
+/* ---------- abas ---------- */
+.abas{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 6px;margin:0 calc(var(--pad) * -1) 28px;padding-left:var(--pad);padding-right:var(--pad);scroll-snap-type:x proximity}
+.abas::-webkit-scrollbar{display:none}
+.aba{flex:none;scroll-snap-align:start;min-height:46px;padding:11px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);font:600 14px Montserrat,sans-serif;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+.aba:hover{border-color:var(--gold)}
+.aba[aria-selected="true"]{background:var(--navy);color:var(--gold-hi);border-color:var(--navy)}
+@media (min-width:900px){.abas{justify-content:center;margin-left:0;margin-right:0;flex-wrap:wrap;overflow:visible}}
+.painel{display:grid;gap:32px;align-items:center}
+.painel[hidden]{display:none}
+.painel__foto{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--cream);position:relative}
+.painel__foto img{width:100%;height:100%;object-fit:cover}
+.painel__foto::after{content:"";position:absolute;inset:14px;border:1px solid rgba(230,205,155,.55);border-radius:8px;pointer-events:none}
+.painel h3{font-weight:800;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1.12}
+.painel .filete{margin:20px 0}
+.lista{list-style:none;margin:22px 0;padding:0;display:grid;gap:12px}
+.lista li{display:flex;gap:12px;align-items:flex-start}
+.lista svg{flex:none;width:20px;height:20px;margin-top:3px;color:var(--gold-lo)}
+.nota{display:flex;gap:12px;align-items:flex-start;padding:16px 18px;border-left:2px solid var(--gold);background:var(--cream);font-size:15px;color:var(--text);margin:0 0 26px;border-radius:0 8px 8px 0}
+@media (min-width:900px){.painel{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px}.painel.inv .painel__foto{order:2}}
+@media (max-width:899px){.painel .acoes{text-align:center}.painel .acoes .btn{width:100%}}
+
+/* ---------- destaque doença ---------- */
+.destaque{position:relative;overflow:hidden;isolation:isolate;background:var(--navy-950);color:var(--on-dark)}
+.destaque img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 30%;z-index:-2;opacity:.55}
+.destaque::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,14,26,.55),rgba(6,14,26,.92))}
+.destaque .wrap{padding-top:96px;padding-bottom:96px;text-align:center}
+.destaque .filete{margin:24px auto}
+.destaque h2{color:#fff}
+.destaque .lead{color:#D5DAE2;max-width:620px;margin:0 auto}
+.destaque .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0 34px;padding:0;list-style:none}
+.destaque .tags li{padding:9px 16px;border:1px solid rgba(230,205,155,.45);border-radius:999px;font-size:14px;color:var(--gold-hi)}
+.sigilo{display:inline-flex;gap:10px;align-items:center;margin-top:22px;font-size:14px;color:var(--on-dark-2);max-width:560px;text-align:left}
+.sigilo svg{flex:none;width:20px;height:20px;color:var(--gold)}
+@media (min-width:900px){
+  .destaque::before{background:linear-gradient(90deg,rgba(6,14,26,.96) 0%,rgba(6,14,26,.86) 45%,rgba(6,14,26,.25) 100%)}
+  .destaque img{opacity:1}
+  .destaque .wrap{text-align:left;padding-top:140px;padding-bottom:140px}
+  .destaque .conteudo{max-width:600px}
+  .destaque .filete{margin:28px 0}
+  .destaque .lead{margin:0}
+  .destaque .tags{justify-content:flex-start}
+}
+
+/* ---------- passos ---------- */
+.passos{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:p}
+.passo{position:relative;padding:0 0 36px 64px}
+.passo::before{counter-increment:p;content:counter(p,decimal-leading-zero);position:absolute;left:0;top:-4px;font-family:Marcellus,serif;font-size:34px;color:var(--gold);line-height:1}
+.passo::after{content:"";position:absolute;left:20px;top:44px;bottom:8px;width:1px;background:var(--line-dark)}
+.passo:last-child::after{display:none}
+.passo h3{font-size:18px;font-weight:700;margin-bottom:6px;text-transform:none;letter-spacing:0}
+.passo p{font-size:15.5px}
+@media (min-width:900px){
+  .passos{grid-template-columns:repeat(4,minmax(0,1fr));gap:40px}
+  .passo{padding:64px 0 0}
+  .passo::before{top:0}
+  .passo::after{left:64px;right:-28px;top:18px;bottom:auto;width:auto;height:1px}
+}
+
+/* ---------- escritório ---------- */
+.esc{display:grid;gap:40px;align-items:center}
+.esc__selo{justify-self:center;width:min(300px,70vw)}
+@media (min-width:900px){.esc{grid-template-columns:5fr 7fr;gap:80px}.esc__selo{width:100%;max-width:380px}}
+
+/* ---------- faq ---------- */
+.faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;font-weight:600;font-size:17px;color:var(--ink);min-height:64px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary span.x{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .25s var(--ease),background .2s}
+.faq summary span.x::before{content:"+";font-size:22px;line-height:1;color:var(--gold-lo)}
+.faq details[open] summary span.x{transform:rotate(45deg);background:var(--cream)}
+.faq details p{padding:0 48px 24px 0;font-size:16px}
+
+/* ---------- formulário ---------- */
+.form-sec{position:relative;background:var(--navy);overflow:hidden;isolation:isolate}
+.form-grid{display:grid;gap:40px;align-items:center}
+.form-foto{display:none}
+.form-texto{text-align:center}
+.form-texto .filete{margin:22px auto}
+.form-card{background:var(--paper);border-radius:var(--r);padding:30px 22px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);border-top:3px solid var(--gold)}
+.form-sec .form-card h3{color:var(--ink);font-weight:800;text-transform:uppercase;font-size:20px;margin-bottom:6px}
+.form-card .sub{font-size:15px;color:var(--muted);margin-bottom:22px}
+.campo{margin-bottom:16px}
+.campo label{display:block;font-weight:600;font-size:14px;color:var(--ink);margin-bottom:6px}
+.campo input{width:100%;min-height:54px;padding:14px 16px;border:1.5px solid #CFC5B3;border-radius:6px;background:#fff;font:500 17px Montserrat,sans-serif;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.campo input:focus{outline:none;border-color:var(--gold-lo);box-shadow:0 0 0 4px rgba(201,164,106,.25)}
+.campo.erro input{border-color:#B3261E}
+.campo .msg{display:none;color:#B3261E;font-size:13px;margin-top:6px}
+.campo.erro .msg{display:block}
+.assunto{display:none;align-items:center;gap:10px;font-size:14px;color:var(--ink);background:var(--cream);border-radius:6px;padding:10px 12px;margin-bottom:16px}
+.assunto.on{display:flex}
+.assunto button{margin-left:auto;background:none;border:0;color:var(--muted);font:600 13px Montserrat,sans-serif;text-decoration:underline;cursor:pointer;min-height:32px}
+.form-card .btn{width:100%;margin-top:6px}
+.form-card .btn[disabled]{opacity:.7;cursor:wait}
+.lgpd{font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.5}
+.falha{display:none;font-size:14px;color:#B3261E;margin-top:12px}
+@media (min-width:900px){
+  .form-grid{grid-template-columns:minmax(0,1fr) 440px;gap:80px}
+  .form-texto{text-align:left}
+  .form-texto .filete{margin:28px 0}
+  .form-foto{display:block;position:absolute;inset:0 auto 0 0;width:52%;z-index:-2}
+  .form-foto img{width:100%;height:100%;object-fit:cover;opacity:.32}
+  .form-sec::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,22,40,.55) 0%,var(--navy) 55%)}
+  .form-card{padding:36px 34px}
+}
+
+/* ---------- rodapé ---------- */
+.rodape{background:var(--navy-950);color:#9AA3B2;font-size:14px}
+.rodape .wrap{display:grid;gap:24px;padding-top:48px;padding-bottom:110px;text-align:center;justify-items:center}
+.rodape img{height:64px;width:auto}
+.rodape small{font-size:12.5px;color:#7C8596;line-height:1.6}
+@media (min-width:900px){.rodape .wrap{grid-template-columns:auto 1fr;text-align:left;justify-items:start;align-items:center;padding-bottom:48px}.rodape .info{justify-self:end;text-align:right}}
+
+/* ---------- barra fixa (celular) ---------- */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(6,14,26,.96);border-top:1px solid var(--line-dark);transform:translateY(110%);transition:transform .3s var(--ease)}
+.barra.on{transform:none}
+.barra .btn{width:100%;min-height:50px}
+@media (min-width:900px){.barra{display:none}}
+
+/* ---------- entrada suave ---------- */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.card img,.btn{transition:none}}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Sílvio Filho Advocacia — início">
+      <img src="/img/logo-h-gold.webp" alt="Sílvio Filho Advocacia" width="242" height="44">
+    </a>
+    <nav aria-label="Seções da página">
+      <a href="#situacoes">Situações</a>
+      <a href="#entenda">Entenda</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn-ouro" href="#formulario" data-cta="topo">Quero orientação</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- HERO -->
+<section class="hero dark" aria-labelledby="h1">
+  <div class="hero__foto">
+    <img src="/img/fotos/hero-1400.webp" srcset="/img/fotos/hero-800.webp 800w, /img/fotos/hero-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 60vw" width="1400" height="934" alt="Trabalhador de braços cruzados em um centro de distribuição" fetchpriority="high" decoding="async">
+  </div>
+  <div class="wrap">
+    <div class="hero__texto">
+      <span class="kicker">Advocacia trabalhista · Maringá e todo o Paraná</span>
+      <h1 id="h1" class="t-xl">Seus direitos no trabalho merecem <span class="ouro">atenção.</span></h1>
+      <span class="filete" aria-hidden="true"></span>
+      <p class="lead">Orientação jurídica para trabalhadores com dúvidas sobre demissão, salários e FGTS, situações abusivas e problemas de saúde ou acidentes ligados ao trabalho.</p>
+      <div class="hero__ctas">
+        <a class="btn btn-ouro" href="#formulario" data-cta="hero">Quero falar com o escritório
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-linha" href="#situacoes">Ver as situações</a>
+      </div>
+      <ul class="selos">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"/></svg>Primeiro contato pelo WhatsApp</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Atendimento em todo o Paraná</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Sigilo das informações</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAIXA -->
+<div class="faixa" aria-label="Como o escritório atende">
+  <div class="wrap">
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/></svg>Linguagem clara, sem juridiquês</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>Análise individual de cada caso</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 20v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>Equipe dedicada à triagem</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V7l8-4z"/></svg>Informações tratadas com sigilo</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SITUAÇÕES -->
+<section id="situacoes" class="sec" aria-labelledby="sit-t">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="kicker">Assuntos atendidos</span>
+      <h2 id="sit-t" class="t-lg">Qual destas situações você está <span class="ouro">vivendo?</span></h2>
+      <span class="filete" aria-hidden="true"></span>
+      <p class="lead">Nem toda situação difícil no trabalho é uma irregularidade. A análise ajuda a entender o que se aplica ao seu caso.</p>
+    </div>
+    <div class="mosaico">
+      <a class="card g rv" href="#formulario" data-assunto="justa" data-cta="card-justa">
+        <img src="/img/fotos/justa-800.webp" srcset="/img/fotos/justa-800.webp 800w, /img/fotos/justa-1400.webp 1400w" sizes="(max-width: 1000px) 100vw, 50vw" width="800" height="533" alt="Trabalhador analisando documentos com o responsável na oficina" loading="lazy" decoding="async">
+        <div class="card__corpo">
+          <span class="card__n">01</span>
+          <h3>Demissão por justa causa</h3>
+          <p>Recebeu justa causa e discorda do motivo apontado? Os fatos e as provas podem ser analisados.</p>
+          <span class="seta">Quero orientação <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="card g rv" href="#formulario" data-assunto="indireta" data-cta="card-indireta">
+        <img src="/img/fotos/indireta-800.webp" srcset="/img/fotos/indireta-800.webp 800w, /img/fotos/indireta-1400.webp 1400w" sizes="(max-width: 1000px) 100vw, 50vw" width="800" height="533" alt="Trabalhadora fazendo anotações em um armazém" loading="lazy" decoding="async">
+        <div class="card__corpo">
+          <span class="card__n">02</span>
+          <h3>A empresa não cumpre as obrigações</h3>
+          <p>Salários atrasados, FGTS sem depósito ou outras faltas graves podem levar à rescisão indireta, conforme o caso.</p>
+          <span class="seta">Quero orientação <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="card rv" href="#formulario" data-assunto="assedio" data-cta="card-assedio">
+        <img src="/img/fotos/assedio-800.webp" srcset="/img/fotos/assedio-800.webp 800w, /img/fotos/assedio-1400.webp 1400w" sizes="(max-width: 1000px) 100vw, 34vw" width="800" height="533" alt="Atendente de call center com fone de ouvido em ambiente de escritório" loading="lazy" decoding="async">
+        <div class="card__corpo">
+          <span class="card__n">03</span>
+          <h3>Humilhação no trabalho</h3>
+          <p>Ofensas e constrangimentos que se repetem podem caracterizar assédio moral.</p>
+          <span class="seta">Quero orientação <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="card rv" href="#formulario" data-assunto="acidente" data-cta="card-acidente">
+        <img src="/img/fotos/acidente-800.webp" srcset="/img/fotos/acidente-800.webp 533w, /img/fotos/acidente-1400.webp 933w" sizes="(max-width: 1000px) 100vw, 34vw" width="533" height="800" alt="Operadora de empilhadeira trabalhando em um galpão" loading="lazy" decoding="async">
+        <div class="card__corpo">
+          <span class="card__n">04</span>
+          <h3>Acidente de trabalho</h3>
+          <p>Dúvidas sobre direitos e procedimentos depois de um acidente ligado à atividade.</p>
+          <span class="seta">Quero orientação <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="card rv" href="#formulario" data-assunto="doenca" data-cta="card-doenca">
+        <img src="/img/fotos/doenca-800.webp" srcset="/img/fotos/doenca-800.webp 800w, /img/fotos/doenca-1400.webp 1400w" sizes="(max-width: 1000px) 100vw, 34vw" width="800" height="533" alt="Profissional de saúde olhando pela janela durante uma pausa" loading="lazy" decoding="async">
+        <div class="card__corpo">
+          <span class="card__n">05</span>
+          <h3>Doença ocupacional</h3>
+          <p>LER/DORT, dores, esgotamento ou burnout que possam ter relação com o trabalho.</p>
+          <span class="seta">Quero orientação <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ENTENDA (abas) -->
+<section id="entenda" class="sec" style="background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)" aria-labelledby="ent-t">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="kicker">Entenda cada situação</span>
+      <h2 id="ent-t" class="t-lg">Informação clara antes de <span class="ouro">decidir</span></h2>
+      <span class="filete" aria-hidden="true"></span>
+    </div>
+
+    <div class="abas" role="tablist" aria-label="Assuntos">
+      <button class="aba" role="tab" id="tab-justa" aria-controls="p-justa" aria-selected="true">Justa causa</button>
+      <button class="aba" role="tab" id="tab-indireta" aria-controls="p-indireta" aria-selected="false" tabindex="-1">Rescisão indireta</button>
+      <button class="aba" role="tab" id="tab-assedio" aria-controls="p-assedio" aria-selected="false" tabindex="-1">Assédio moral</button>
+      <button class="aba" role="tab" id="tab-acidente" aria-controls="p-acidente" aria-selected="false" tabindex="-1">Acidente de trabalho</button>
+      <button class="aba" role="tab" id="tab-doenca" aria-controls="p-doenca" aria-selected="false" tabindex="-1">Doença ocupacional</button>
+    </div>
+
+    <div class="painel" id="p-justa" role="tabpanel" aria-labelledby="tab-justa">
+      <div class="painel__foto"><img src="/img/fotos/justa-800.webp" width="800" height="533" alt="" loading="lazy" decoding="async"></div>
+      <div>
+        <h3>Discorda da justa causa que recebeu?</h3>
+        <span class="filete" aria-hidden="true"></span>
+        <p>A justa causa é a penalidade mais grave do contrato de trabalho e depende das circunstâncias. Quando o trabalhador não concorda com ela, é possível analisar os fatos e as provas para entender se a medida foi adequada.</p>
+        <ul class="lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>O motivo apontado pela empresa e como os fatos aconteceram</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Se houve advertências ou suspensões antes e o tempo até a punição</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Comunicados, mensagens e holerites que ajudam a reconstruir o ocorrido</span></li>
+        </ul>
+        <p class="nota">Guarde os documentos que você recebeu ou assinou. A relevância de cada um depende do caso.</p>
+        <div class="acoes"><a class="btn btn-ouro" href="#formulario" data-assunto="justa" data-cta="aba-justa">Quero orientação sobre justa causa</a></div>
+      </div>
+    </div>
+
+    <div class="painel inv" id="p-indireta" role="tabpanel" aria-labelledby="tab-indireta" hidden>
+      <div class="painel__foto"><img src="/img/fotos/indireta-800.webp" width="800" height="533" alt="" loading="lazy" decoding="async"></div>
+      <div>
+        <h3>Quando quem descumpre o contrato é o empregador</h3>
+        <span class="filete" aria-hidden="true"></span>
+        <p>A rescisão indireta é a forma de encerrar o contrato quando o empregador comete uma falta grave prevista em lei. Ela não se aplica a qualquer problema: os requisitos legais precisam estar presentes no caso concreto.</p>
+        <ul class="lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Atrasos de salário que se repetem</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>FGTS sem depósito ou com falhas</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Descumprimentos relevantes do contrato ou situações graves no ambiente de trabalho</span></li>
+        </ul>
+        <p class="nota">Antes de decidir deixar o emprego, procure orientação. O caminho adequado depende dos fatos.</p>
+        <div class="acoes"><a class="btn btn-ouro" href="#formulario" data-assunto="indireta" data-cta="aba-indireta">Quero orientação sobre rescisão indireta</a></div>
+      </div>
+    </div>
+
+    <div class="painel" id="p-assedio" role="tabpanel" aria-labelledby="tab-assedio" hidden>
+      <div class="painel__foto"><img src="/img/fotos/assedio-800.webp" width="800" height="533" alt="" loading="lazy" decoding="async"></div>
+      <div>
+        <h3>Cobrança faz parte do trabalho. Humilhação, não.</h3>
+        <span class="filete" aria-hidden="true"></span>
+        <p>Cobranças de metas feitas com respeito e conflitos pontuais, em geral, fazem parte da rotina. O que costuma merecer análise é a conduta abusiva que se repete e atinge a dignidade de quem trabalha.</p>
+        <ul class="lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Humilhações recorrentes, em público ou em particular</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Exposição vexatória diante de colegas ou clientes</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Perseguição, isolamento ou tratamento degradante</span></li>
+        </ul>
+        <p class="nota">Mensagens, e-mails, registros e testemunhas podem ser relevantes, sempre obtidos de forma lícita.</p>
+        <div class="acoes"><a class="btn btn-ouro" href="#formulario" data-assunto="assedio" data-cta="aba-assedio">Quero orientação sobre assédio moral</a></div>
+      </div>
+    </div>
+
+    <div class="painel inv" id="p-acidente" role="tabpanel" aria-labelledby="tab-acidente" hidden>
+      <div class="painel__foto"><img src="/img/fotos/acidente-800.webp" width="533" height="800" alt="" loading="lazy" decoding="async" style="object-position:50% 35%"></div>
+      <div>
+        <h3>Sofreu um acidente no trabalho?</h3>
+        <span class="filete" aria-hidden="true"></span>
+        <p>O acidente pode ter repercussões trabalhistas e previdenciárias, que variam conforme o que aconteceu e suas consequências. Alguns cuidados ajudam a preservar as informações do caso.</p>
+        <ul class="lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Primeiro, cuide da saúde:</strong> busque atendimento médico</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Anote data, local, como aconteceu e quem presenciou</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Guarde atestados, comunicações da empresa e, se houver, a CAT</span></li>
+        </ul>
+        <p class="nota">Cada caso exige análise individual dos fatos e dos documentos.</p>
+        <div class="acoes"><a class="btn btn-ouro" href="#formulario" data-assunto="acidente" data-cta="aba-acidente">Quero orientação sobre acidente</a></div>
+      </div>
+    </div>
+
+    <div class="painel" id="p-doenca" role="tabpanel" aria-labelledby="tab-doenca" hidden>
+      <div class="painel__foto"><img src="/img/fotos/doenca-800.webp" width="800" height="533" alt="" loading="lazy" decoding="async"></div>
+      <div>
+        <h3>Adoecer pode ter relação com o trabalho</h3>
+        <span class="filete" aria-hidden="true"></span>
+        <p>Algumas doenças podem estar ligadas às atividades profissionais. Essa relação não é automática: depende das circunstâncias e de avaliação técnica e jurídica de cada situação.</p>
+        <ul class="lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>LER/DORT e dores em punhos, braços, ombros ou coluna</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Esgotamento e burnout relacionados ao ambiente ou à organização do trabalho</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Dúvidas sobre afastamento, retorno e documentação</span></li>
+        </ul>
+        <p class="nota">Não envie exames ou laudos no primeiro contato. A equipe indica o momento e o canal adequados.</p>
+        <div class="acoes"><a class="btn btn-ouro" href="#formulario" data-assunto="doenca" data-cta="aba-doenca">Quero orientação sobre doença ocupacional</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTAQUE: adoecimento -->
+<section class="destaque" aria-labelledby="dest-t">
+  <img src="/img/fotos/doenca-1400.webp" srcset="/img/fotos/doenca-800.webp 800w, /img/fotos/doenca-1400.webp 1400w" sizes="100vw" width="1400" height="933" alt="" loading="lazy" decoding="async">
+  <div class="wrap">
+    <div class="conteudo rv">
+      <span class="kicker on-dark">Saúde e trabalho</span>
+      <h2 id="dest-t" class="t-lg">Seu trabalho está <span class="ouro">adoecendo</span> você?</h2>
+      <span class="filete" aria-hidden="true"></span>
+      <p class="lead">O esgotamento profissional e outras doenças podem ter relação com o trabalho e, em determinadas situações, gerar direitos. Cada caso precisa ser avaliado com cuidado.</p>
+      <ul class="tags">
+        <li>Burnout</li><li>LER/DORT</li><li>Problemas de coluna</li><li>Afastamento</li>
+      </ul>
+      <a class="btn btn-ouro" href="#formulario" data-assunto="doenca" data-cta="destaque">Quero orientação</a>
+      <p class="sigilo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Informações de saúde são tratadas com sigilo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona" class="sec dark" aria-labelledby="cf-t">
+  <div class="wrap">
+    <div class="cab esq rv">
+      <span class="kicker">Como funciona</span>
+      <h2 id="cf-t" class="t-lg">O primeiro contato, <span class="ouro">passo a passo</span></h2>
+      <span class="filete" aria-hidden="true"></span>
+    </div>
+    <ol class="passos">
+      <li class="passo rv"><h3>Você deixa seu contato</h3><p>Preencha nome e WhatsApp no formulário. Não é preciso contar tudo de início.</p></li>
+      <li class="passo rv"><h3>Triagem inicial</h3><p>A equipe do escritório faz a triagem e identifica o assunto do atendimento.</p></li>
+      <li class="passo rv"><h3>Informações necessárias</h3><p>São pedidas apenas as informações necessárias para compreender a situação.</p></li>
+      <li class="passo rv"><h3>Avaliação com o advogado</h3><p>Quando pertinente, o caso é encaminhado para avaliação e agendamento com o advogado.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ESCRITÓRIO -->
+<section class="sec" aria-labelledby="es-t">
+  <div class="wrap esc">
+    <img class="esc__selo rv" src="/img/selo-navy.webp" width="525" height="481" alt="Selo Sílvio Filho Advocacia" loading="lazy" decoding="async">
+    <div class="rv">
+      <span class="kicker">O escritório</span>
+      <h2 id="es-t" class="t-lg">Atuação dedicada a <span class="ouro">quem trabalha</span></h2>
+      <span class="filete" aria-hidden="true"></span>
+      <p class="lead" style="margin-bottom:16px">A Sílvio Filho Advocacia é um escritório de Maringá voltado à orientação jurídica de trabalhadores em questões de Direito do Trabalho, com atendimento a pessoas de todo o Paraná.</p>
+      <p>O objetivo é explicar com clareza o que pode ser analisado em cada situação, sem promessas e sem linguagem difícil. Também tiramos dúvidas sobre horas extras, jornada, FGTS e verbas rescisórias.</p>
+      <p style="margin-top:28px"><a class="seta" href="#formulario" data-cta="escritorio">Falar com a equipe <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="duvidas" class="sec" style="background:var(--cream);border-top:1px solid var(--line)" aria-labelledby="fq-t">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="kicker">Perguntas frequentes</span>
+      <h2 id="fq-t" class="t-lg">Dúvidas <span class="ouro">comuns</span></h2>
+      <span class="filete" aria-hidden="true"></span>
+      <p class="lead">Respostas informativas e gerais. Cada caso depende de análise individual.</p>
+    </div>
+    <div class="faq">
+      <details><summary>É possível contestar uma demissão por justa causa?<span class="x" aria-hidden="true"></span></summary><p>Sim, o trabalhador pode questionar a justa causa quando discorda dela. O resultado depende dos fatos, das provas e das circunstâncias, que precisam ser analisados individualmente.</p></details>
+      <details><summary>Quando pode ser cabível a rescisão indireta?<span class="x" aria-hidden="true"></span></summary><p>Quando o empregador comete uma falta grave prevista em lei, como descumprir obrigações importantes do contrato. Nem todo problema se enquadra nisso, e é recomendável buscar orientação antes de qualquer decisão sobre o emprego.</p></details>
+      <details><summary>Salário atrasado pode gerar consequências para a empresa?<span class="x" aria-hidden="true"></span></summary><p>O pagamento em dia é obrigação do empregador. Atrasos, principalmente quando se repetem, podem ter consequências jurídicas, que variam conforme a frequência, o tempo de atraso e outras circunstâncias.</p></details>
+      <details><summary>Como identificar situações que podem caracterizar assédio moral?<span class="x" aria-hidden="true"></span></summary><p>Em geral, analisam-se condutas abusivas repetidas que atingem a dignidade do trabalhador, como humilhações, exposição vexatória ou perseguição. Cobranças respeitosas e conflitos pontuais, por si só, normalmente não configuram assédio.</p></details>
+      <details><summary>Sofri um acidente de trabalho. O que devo fazer?<span class="x" aria-hidden="true"></span></summary><p>Em primeiro lugar, procure atendimento de saúde. Depois, registre como o acidente aconteceu, guarde atestados e comunicações e anote quem presenciou. A orientação jurídica ajuda a entender os procedimentos aplicáveis.</p></details>
+      <details><summary>Burnout pode ter relação com o trabalho?<span class="x" aria-hidden="true"></span></summary><p>Pode, dependendo das circunstâncias. A relação entre uma condição de saúde e o trabalho não é automática e depende de avaliação médica e jurídica de cada situação.</p></details>
+      <details><summary>Quais documentos podem ajudar na análise?<span class="x" aria-hidden="true"></span></summary><p>Carteira de trabalho, contrato, holerites, extrato do FGTS, comunicados da empresa e mensagens costumam ser úteis. A equipe informa o que é pertinente ao seu caso e o canal adequado para o envio.</p></details>
+      <details><summary>Existe prazo para buscar orientação após a demissão?<span class="x" aria-hidden="true"></span></summary><p>A Constituição prevê, para créditos resultantes das relações de trabalho, prazo prescricional de cinco anos, observado o limite de dois anos após o fim do contrato para entrar com a ação. A contagem pode ter particularidades em cada situação, por isso é útil esclarecer suas dúvidas com orientação adequada.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section id="formulario" class="sec form-sec dark" aria-labelledby="fm-t">
+  <div class="form-foto" aria-hidden="true">
+    <img src="/img/fotos/contato-1400.webp" width="1400" height="933" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="wrap form-grid">
+    <div class="form-texto rv">
+      <span class="kicker">Fale com o escritório</span>
+      <h2 id="fm-t" class="t-lg">Tem dúvidas sobre uma situação <span class="ouro">no trabalho?</span></h2>
+      <span class="filete" aria-hidden="true"></span>
+      <p class="lead">Deixe seu nome e WhatsApp. Em seguida você será direcionado à conversa com a equipe do escritório, que orienta sobre os próximos passos do atendimento.</p>
+      <ul class="selos" style="grid-template-columns:1fr;margin-top:28px">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Só nome e WhatsApp, sem documentos nesta etapa</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Atendimento para trabalhadores de todo o Paraná</li>
+      </ul>
+    </div>
+
+    <form class="form-card rv" id="form" novalidate>
+      <h3>Quero ser atendido</h3>
+      <p class="sub">Leva menos de 1 minuto.</p>
+      <div class="assunto" id="assunto" aria-live="polite">
+        <span>Assunto: <strong id="assunto-txt"></strong></span>
+        <button type="button" id="assunto-limpar">trocar</button>
+      </div>
+      <div class="campo" id="c-nome">
+        <label for="nome">Seu nome</label>
+        <input id="nome" name="nome" type="text" autocomplete="name" maxlength="80" required placeholder="Nome e sobrenome">
+        <span class="msg">Digite seu nome.</span>
+      </div>
+      <div class="campo" id="c-zap">
+        <label for="zap">Seu WhatsApp</label>
+        <input id="zap" name="zap" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="16" required placeholder="(44) 99999-9999">
+        <span class="msg">Digite um WhatsApp válido com DDD.</span>
+      </div>
+      <button type="submit" class="btn btn-ouro">Quero ser atendido
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <p class="falha" id="falha" role="alert">Não conseguimos enviar agora. Verifique sua conexão e tente novamente.</p>
+      <p class="lgpd">Seus dados são usados apenas para o contato do escritório sobre o seu atendimento.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <img src="/img/logo-cream.webp" width="134" height="64" alt="Sílvio Filho Advocacia" loading="lazy" decoding="async">
+    <div class="info">
+      <p>Maringá · Paraná</p>
+      <!-- OAB: inserir aqui a inscrição do advogado, ex.: <p>OAB/PR nº 00.000</p> -->
+      <small>Conteúdo informativo, que não substitui a análise individual de cada caso.<br>Imagens: Freepik.</small>
+    </div>
+  </div>
+</footer>
+
+<div class="barra" id="barra">
+  <a class="btn btn-ouro" href="#formulario" data-cta="barra-mobile">Quero orientação</a>
+</div>
+
+<script>
+/* ===========================================================================
+   CONFIG
+   =========================================================================== */
+const CONFIG = { redirect: "/redirect" };
+
+const SB = {
+  url:  "https://qxhnjzyhtllmtdrcyygi.supabase.co",
+  key:  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4aG5qenlodGxsbXRkcmN5eWdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMzczNjgsImV4cCI6MjA5NzgxMzM2OH0.DWf4I_x9F--H7ZZHUt_n4V3B__Nlsf1jNZdUV0vNBLU",
+  site: "silvio-filho"
+};
+function sbGravar(tabela, dados){
+  return fetch(SB.url + "/rest/v1/" + tabela, {
+    method: "POST",
+    headers: {
+      "apikey": SB.key,
+      "Authorization": "Bearer " + SB.key,
+      "Content-Type": "application/json",
+      "Prefer": "return=minimal"
+    },
+    body: JSON.stringify(Object.assign({site: SB.site}, dados)),
+    keepalive: true
+  });
+}
+
+/* 1 visita por carregamento */
+sbGravar("lp_visits", { referrer: document.referrer || null, path: location.pathname + location.search }).catch(() => {});
+
+/* eventos de conversão sem dados pessoais */
+function track(evento, dados){
+  try{
+    if (window.dataLayer) window.dataLayer.push(Object.assign({event: evento}, dados || {}));
+    if (typeof fbq === "function") fbq("trackCustom", evento, dados || {});
+    if (typeof gtag === "function") gtag("event", evento, dados || {});
+  }catch(e){}
+}
+
+/* ---------- assunto escolhido ---------- */
+const ASSUNTOS = {
+  justa: "Demissão por justa causa",
+  indireta: "Rescisão indireta / obrigações da empresa",
+  assedio: "Assédio moral",
+  acidente: "Acidente de trabalho",
+  doenca: "Doença ocupacional"
+};
+let assunto = "";
+let ultimoCta = "";
+const boxAssunto = document.getElementById("assunto");
+function definirAssunto(chave){
+  assunto = ASSUNTOS[chave] ? chave : "";
+  document.getElementById("assunto-txt").textContent = assunto ? ASSUNTOS[assunto] : "";
+  boxAssunto.classList.toggle("on", !!assunto);
+}
+document.getElementById("assunto-limpar").addEventListener("click", () => definirAssunto(""));
+document.querySelectorAll("[data-cta]").forEach(el => {
+  el.addEventListener("click", () => {
+    ultimoCta = el.dataset.cta;
+    if (el.dataset.assunto) definirAssunto(el.dataset.assunto);
+    track("cta_click", {cta: ultimoCta});
+    if (el.getAttribute("href") === "#formulario"){
+      setTimeout(() => { const n = document.getElementById("nome"); if (n && window.innerWidth >= 900) n.focus({preventScroll:true}); }, 600);
+    }
+  });
+});
+
+/* ---------- abas ---------- */
+const abas = [...document.querySelectorAll('[role="tab"]')];
+function abrirAba(aba, foco){
+  abas.forEach(a => {
+    const sel = a === aba;
+    a.setAttribute("aria-selected", sel);
+    a.tabIndex = sel ? 0 : -1;
+    document.getElementById(a.getAttribute("aria-controls")).hidden = !sel;
+  });
+  if (foco) aba.focus();
+  aba.scrollIntoView({block:"nearest", inline:"nearest"});
+}
+abas.forEach((a, i) => {
+  a.addEventListener("click", () => abrirAba(a));
+  a.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft"){
+      e.preventDefault();
+      const j = (i + (e.key === "ArrowRight" ? 1 : -1) + abas.length) % abas.length;
+      abrirAba(abas[j], true);
+    }
+  });
+});
+
+/* ---------- entrada suave ---------- */
+if ("IntersectionObserver" in window){
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); }
+  }), {threshold:.12, rootMargin:"0px 0px -6% 0px"});
+  document.querySelectorAll(".rv").forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll(".rv").forEach(el => el.classList.add("on"));
+}
+
+/* ---------- barra fixa no celular ---------- */
+const barra = document.getElementById("barra");
+const secForm = document.getElementById("formulario");
+let tic = false;
+function onScroll(){
+  if (tic) return; tic = true;
+  requestAnimationFrame(() => {
+    const topoForm = secForm.getBoundingClientRect().top;
+    barra.classList.toggle("on", window.scrollY > 560 && topoForm > window.innerHeight * .75);
+    tic = false;
+  });
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+
+/* ---------- formulário ---------- */
+const form = document.getElementById("form");
+const nome = document.getElementById("nome");
+const zap = document.getElementById("zap");
+
+zap.addEventListener("input", () => {
+  let d = zap.value.replace(/\D/g, "").slice(0, 11);
+  let f = d;
+  if (d.length > 2) f = "(" + d.slice(0,2) + ") " + d.slice(2);
+  if (d.length > 7) f = "(" + d.slice(0,2) + ") " + d.slice(2, d.length - 4) + "-" + d.slice(-4);
+  zap.value = f;
+  document.getElementById("c-zap").classList.remove("erro");
+});
+nome.addEventListener("input", () => document.getElementById("c-nome").classList.remove("erro"));
+
+function validar(){
+  const nomeOk = nome.value.trim().length >= 2;
+  const digitos = zap.value.replace(/\D/g, "");
+  const zapOk = digitos.length === 10 || digitos.length === 11;
+  document.getElementById("c-nome").classList.toggle("erro", !nomeOk);
+  document.getElementById("c-zap").classList.toggle("erro", !zapOk);
+  if (!nomeOk) nome.focus(); else if (!zapOk) zap.focus();
+  return nomeOk && zapOk;
+}
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  if (!validar()) return;
+  const botao = form.querySelector('button[type="submit"]');
+  const falha = document.getElementById("falha");
+  falha.style.display = "none";
+  botao.disabled = true;
+
+  const params = new URLSearchParams(location.search);
+  const origem = [params.get("utm_source"), params.get("utm_campaign"), ultimoCta || "form", assunto].filter(Boolean).join(" / ");
+
+  const envio = sbGravar("lp_leads", {
+    nome: nome.value.trim().slice(0, 80),
+    whatsapp: zap.value.replace(/\D/g, ""),
+    origem: origem
+  }).then(r => { if (!r.ok) throw new Error("HTTP " + r.status); });
+
+  const limite = new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), 8000));
+
+  Promise.race([envio, limite]).then(() => {
+    track("lead_enviado", {origem: ultimoCta || "form", assunto: assunto || "geral"});
+    try{
+      sessionStorage.setItem("sf_nome", nome.value.trim().split(" ")[0].slice(0, 30));
+      sessionStorage.setItem("sf_assunto", assunto);
+    }catch(err){}
+    window.location.href = CONFIG.redirect;
+  }).catch(() => {
+    botao.disabled = false;
+    falha.style.display = "block";
+  });
+});
+</script>
+</body>
+</html>
