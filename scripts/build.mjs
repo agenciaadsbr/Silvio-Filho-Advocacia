@@ -1,27 +1,32 @@
-// Build da LP: copia os arquivos estáticos para dist/ e baixa as fotos de banco
-// de imagem (Freepik, licença gratuita com atribuição no rodapé), convertendo
-// cada uma para WebP em duas larguras (800 e 1400 px).
+// Build da LP: copia os arquivos estáticos para dist/ e traz as fotos.
 //
-// As fotos não ficam no repositório: são baixadas a cada build da Vercel.
-// Para trocar uma foto, troque a URL na lista FOTOS abaixo.
-// Se algum download falhar, o build falha — a Vercel mantém a versão anterior
-// no ar, então a página nunca é publicada com imagem quebrada.
+// As fotos são versões LICENCIADAS do Freepik (sem marca d'água), já
+// convertidas para WebP e guardadas no Supabase "ADS BR CLIENTES",
+// bucket público lp-assets, pasta silvio-filho/fotos/. O build copia
+// cada arquivo para dist/img/fotos, então a página serve as imagens pelo
+// próprio domínio (mais rápido e sem depender do Supabase no carregamento).
+//
+// Para trocar uma foto: suba o novo WebP no bucket com o mesmo nome
+// (ou um nome novo, atualizando a lista abaixo e o index.html).
+// Se algum arquivo não puder ser baixado, o build falha — a Vercel mantém
+// a versão anterior no ar, então a página nunca vai ao ar com imagem quebrada.
 
 import { mkdir, copyFile, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import sharp from "sharp";
 
 const DIST = "dist";
+const BASE = "https://qxhnjzyhtllmtdrcyygi.supabase.co/storage/v1/object/public/lp-assets/silvio-filho/fotos/";
 const FOTOS = {
-  hero: "portrait-middle-aged-warehouse-worker-standing-large-warehouse-distribution-center-with-arms-crossed_342744-1543",
-  justa: "distraught-car-mechanic-going-through-problematic-paperwork-with-his-manager-auto-repair-shop_637285-7584",
-  indireta: "woman-worker-taking-notes-warehouse_23-2149128300",
-  assedio: "serious-call-center-operator-dark-office_74855-3079",
-  acidente: "professional-female-driver-operating-forklift-vehicle_23-2150248789",
-  doenca: "female-nurse-staring-out-window_53876-139578",
-  contato: "young-hispanic-man-using-smartphone-sitting-sofa-home_839833-15181"
+  hero: [800, 1400, 1920],
+  saude: [800, 1400, 1920],
+  justa: [800, 1400],
+  indireta: [800, 1400],
+  assedio: [800, 1400],
+  acidente: [800, 1400],
+  doenca: [800, 1400],
+  contato: [800, 1400]
 };
-const LARGURAS = [800, 1400];
+const PAGINAS = ["index.html", "redirect.html", "dashboard.html", "robots.txt"];
 
 async function copiarPasta(origem, destino) {
   await mkdir(destino, { recursive: true });
@@ -32,37 +37,31 @@ async function copiarPasta(origem, destino) {
   }
 }
 
-async function baixar(nome, slug) {
-  const url = `https://img.magnific.com/free-photo/${slug}.jpg?w=1800`;
+async function baixar(arquivo) {
   for (let tentativa = 1; tentativa <= 3; tentativa++) {
     try {
-      const r = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (build)" } });
+      const r = await fetch(BASE + arquivo);
       if (!r.ok) throw new Error("HTTP " + r.status);
-      return Buffer.from(await r.arrayBuffer());
+      const buf = Buffer.from(await r.arrayBuffer());
+      if (buf.length < 2000) throw new Error("arquivo muito pequeno");
+      return buf;
     } catch (e) {
-      console.warn(`[fotos] ${nome}: tentativa ${tentativa} falhou (${e.message})`);
-      if (tentativa === 3) throw new Error(`Não foi possível baixar a foto "${nome}"`);
+      console.warn(`[fotos] ${arquivo}: tentativa ${tentativa} falhou (${e.message})`);
+      if (tentativa === 3) throw new Error(`Não foi possível baixar "${arquivo}"`);
       await new Promise(ok => setTimeout(ok, 1500 * tentativa));
     }
   }
 }
 
 await mkdir(join(DIST, "img", "fotos"), { recursive: true });
-for (const f of ["index.html", "redirect.html", "robots.txt"]) await copyFile(f, join(DIST, f));
+for (const f of PAGINAS) await copyFile(f, join(DIST, f));
 await copiarPasta("img", join(DIST, "img"));
 
-const dimensoes = {};
-for (const [nome, slug] of Object.entries(FOTOS)) {
-  const original = await baixar(nome, slug);
-  for (const w of LARGURAS) {
-    const saida = join(DIST, "img", "fotos", `${nome}-${w}.webp`);
-    const info = await sharp(original)
-      .resize({ width: w, height: w, fit: "inside", withoutEnlargement: true })
-      .webp({ quality: w > 1000 ? 70 : 66, effort: 5 })
-      .toFile(saida);
-    dimensoes[`${nome}-${w}`] = [info.width, info.height];
+for (const [nome, larguras] of Object.entries(FOTOS)) {
+  for (const w of larguras) {
+    const arquivo = `${nome}-${w}.webp`;
+    await writeFile(join(DIST, "img", "fotos", arquivo), await baixar(arquivo));
   }
   console.log(`[fotos] ${nome} ok`);
 }
-await writeFile(join(DIST, "img", "fotos", "dimensoes.json"), JSON.stringify(dimensoes, null, 1));
 console.log("Build concluído.");

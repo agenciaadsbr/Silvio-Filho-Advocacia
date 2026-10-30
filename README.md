@@ -5,8 +5,9 @@ Landing page estática (HTML/CSS/JS puro) para campanhas de Meta Ads no Paraná.
 ## Estrutura
 - `index.html` — página principal (formulário no final; todos os CTAs levam a ele).
 - `redirect.html` — servida em `/redirect`: confirma o envio e abre o WhatsApp em 3 s.
-- `img/` — logo oficial (versões dourada, creme e horizontal), selo, favicon e imagem de compartilhamento.
-- `scripts/build.mjs` — build da Vercel: copia os arquivos para `dist/` e baixa as fotos do banco Freepik, convertendo para WebP (800 e 1400 px).
+- `dashboard.html` — servida em `/dashboard`: painel de leads com login (Supabase Auth, usuário `Admin`).
+- `img/` — logo oficial vetorizada em SVG (vertical e horizontal; dourada, creme e marinho), favicon e imagem de compartilhamento.
+- `scripts/build.mjs` — build da Vercel: copia os arquivos para `dist/` e traz as fotos licenciadas (Freepik, sem marca d'água) do bucket `lp-assets/silvio-filho/fotos` no Supabase.
 
 ## Antes de ativar as campanhas
 1. **WhatsApp**: preencher `CONFIG.whatsapp` em `redirect.html` (só dígitos, 55 + DDD). Enquanto estiver vazio, o lead é gravado e a página de confirmação não redireciona.

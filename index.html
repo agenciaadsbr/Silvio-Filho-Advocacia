@@ -12,6 +12,7 @@
 <meta property="og:title" content="Sílvio Filho Advocacia — Direito do Trabalho">
 <meta property="og:description" content="Orientação jurídica para trabalhadores em Maringá e em todo o Paraná.">
 <meta property="og:image" content="/img/og.jpg">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
 <link rel="icon" type="image/png" href="/img/favicon.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 
@@ -38,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/img/fotos/hero-1400.webp" imagesrcset="/img/fotos/hero-800.webp 800w, /img/fotos/hero-1400.webp 1400w" imagesizes="(max-width: 900px) 100vw, 60vw" fetchpriority="high">
+<link rel="preload" as="image" href="/img/fotos/hero-1400.webp" imagesrcset="/img/fotos/hero-800.webp 800w, /img/fotos/hero-1400.webp 1400w, /img/fotos/hero-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
 
 <style>
 :root{
@@ -102,10 +103,12 @@ p{margin:0}
 
 /* ---------- topo ---------- */
 .topo{position:sticky;top:0;z-index:50;background:rgba(10,22,40,.96);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line-dark)}
-.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
-.topo .marca img{height:30px;width:auto}
-@media (min-width:420px){.topo .marca img{height:36px}}
-@media (min-width:960px){.topo .marca img{height:44px}}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
+@media (min-width:900px){.topo .wrap{height:84px}}
+.topo .marca{display:block}
+.topo .marca img{height:34px;width:auto}
+@media (min-width:420px){.topo .marca img{height:38px}}
+@media (min-width:960px){.topo .marca img{height:50px}}
 .topo nav{display:none;gap:32px}
 .topo nav a{color:var(--on-dark-2);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.04em}
 .topo nav a:hover{color:var(--gold-hi)}
@@ -113,30 +116,33 @@ p{margin:0}
 .topo .marca{flex:none}
 @media (min-width:960px){.topo nav{display:flex}.topo .btn{padding:12px 22px;font-size:13px}}
 
-/* ---------- hero ---------- */
-.hero{position:relative;background:var(--navy);overflow:hidden;isolation:isolate}
-.hero__foto{position:relative;aspect-ratio:4/3;max-height:58vh;width:100%}
-.hero__foto img{width:100%;height:100%;object-fit:cover;object-position:60% 30%}
-.hero__foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,0) 40%,rgba(10,22,40,.85) 85%,var(--navy) 100%)}
-.hero__texto{position:relative;padding:0 0 64px;margin-top:-72px;text-align:center}
-.hero__texto .filete{margin:22px auto}
-.hero__texto .lead{max-width:560px;margin:0 auto}
-.hero__ctas{display:flex;flex-direction:column;gap:12px;margin-top:32px}
-.hero__ctas .btn{width:100%}
+/* ---------- hero (texto centralizado sobre foto em tela cheia) ---------- */
+.hero{position:relative;background:var(--navy-950);overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:center;min-height:calc(100svh - 76px);max-height:900px}
+.hero__foto{position:absolute;inset:0;z-index:-2}
+.hero__foto img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(ellipse 70% 60% at 50% 50%,rgba(6,14,26,.72) 0%,rgba(6,14,26,.55) 55%,rgba(6,14,26,.35) 100%),
+  linear-gradient(180deg,rgba(6,14,26,.55) 0%,rgba(6,14,26,.15) 35%,rgba(6,14,26,.25) 65%,rgba(10,22,40,.95) 100%)}
+.hero__texto{position:relative;max-width:880px;margin:0 auto;padding:88px 0 72px;text-align:center}
+.hero__texto .kicker{color:var(--gold-hi)}
+.hero__texto .filete{margin:24px auto}
+.hero__texto .lead{max-width:620px;margin:0 auto;color:#DCE1E8}
+.hero h1{text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero__ctas{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:34px auto 0;max-width:420px}
+.hero__ctas .btn-linha{background:rgba(6,14,26,.35)}
 .selos{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:12px;color:var(--on-dark-2);font-size:14px;text-align:left;max-width:420px;margin-left:auto;margin-right:auto}
 .selos li{display:flex;gap:12px;align-items:center}
 .selos svg{flex:none;width:20px;height:20px;color:var(--gold)}
+.hero .selos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 24px;max-width:none;color:#DCE1E8}
+@media (max-width:599px){.hero .selos{flex-direction:column;align-items:center;gap:10px}}
 @media (min-width:900px){
-  .hero{min-height:min(760px,calc(100vh - 76px));display:flex;align-items:center}
-  .hero__foto{position:absolute;inset:0 0 0 38%;aspect-ratio:auto;max-height:none;height:100%}
-  .hero__foto img{object-position:50% 25%}
-  .hero__foto::after{background:linear-gradient(90deg,var(--navy) 0%,rgba(10,22,40,.92) 14%,rgba(10,22,40,.35) 50%,rgba(10,22,40,.05) 100%),linear-gradient(0deg,rgba(10,22,40,.55),rgba(10,22,40,0) 40%)}
-  .hero__texto{margin:0;padding:96px 0;text-align:left;max-width:640px}
-  .hero__texto .filete{margin:28px 0}
-  .hero__texto .lead{margin:0}
-  .hero__ctas{flex-direction:row;flex-wrap:wrap}
+  .hero{min-height:min(820px,calc(100vh - 84px))}
+  .hero__texto{padding:120px 0 104px}
+  .hero__texto .filete{margin:30px auto}
+  .hero__ctas{flex-direction:row;justify-content:center;max-width:none}
   .hero__ctas .btn{width:auto}
   .selos{grid-template-columns:repeat(3,auto);gap:24px;max-width:none;margin-left:0}
+  .hero .selos{gap:12px 36px}
 }
 
 /* ---------- faixa de confiança ---------- */
@@ -196,7 +202,7 @@ p{margin:0}
 
 /* ---------- destaque doença ---------- */
 .destaque{position:relative;overflow:hidden;isolation:isolate;background:var(--navy-950);color:var(--on-dark)}
-.destaque img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 30%;z-index:-2;opacity:.55}
+.destaque img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 35%;z-index:-2;opacity:.5}
 .destaque::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,14,26,.55),rgba(6,14,26,.92))}
 .destaque .wrap{padding-top:96px;padding-bottom:96px;text-align:center}
 .destaque .filete{margin:24px auto}
@@ -233,8 +239,10 @@ p{margin:0}
 
 /* ---------- escritório ---------- */
 .esc{display:grid;gap:40px;align-items:center}
-.esc__selo{justify-self:center;width:min(300px,70vw)}
-@media (min-width:900px){.esc{grid-template-columns:5fr 7fr;gap:80px}.esc__selo{width:100%;max-width:380px}}
+.esc__marca{display:grid;place-items:center;background:var(--navy);border-radius:var(--r);padding:56px 36px;position:relative}
+.esc__marca::after{content:"";position:absolute;inset:14px;border:1px solid rgba(230,205,155,.35);border-radius:8px;pointer-events:none}
+.esc__marca img{width:min(320px,100%);height:auto}
+@media (min-width:900px){.esc{grid-template-columns:5fr 7fr;gap:80px}.esc__marca{padding:88px 48px;min-height:380px}}
 
 /* ---------- faq ---------- */
 .faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
@@ -282,15 +290,21 @@ p{margin:0}
 /* ---------- rodapé ---------- */
 .rodape{background:var(--navy-950);color:#9AA3B2;font-size:14px}
 .rodape .wrap{display:grid;gap:24px;padding-top:48px;padding-bottom:110px;text-align:center;justify-items:center}
-.rodape img{height:64px;width:auto}
+.rodape img{height:76px;width:auto}
 .rodape small{font-size:12.5px;color:#7C8596;line-height:1.6}
 @media (min-width:900px){.rodape .wrap{grid-template-columns:auto 1fr;text-align:left;justify-items:start;align-items:center;padding-bottom:48px}.rodape .info{justify-self:end;text-align:right}}
 
-/* ---------- barra fixa (celular) ---------- */
-.barra{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(6,14,26,.96);border-top:1px solid var(--line-dark);transform:translateY(110%);transition:transform .3s var(--ease)}
-.barra.on{transform:none}
-.barra .btn{width:100%;min-height:50px}
-@media (min-width:900px){.barra{display:none}}
+/* ---------- botão flutuante do WhatsApp ---------- */
+.zap-flutuante{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:60;display:flex;align-items:center;gap:10px;text-decoration:none;opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.zap-flutuante.on{opacity:1;transform:none;pointer-events:auto}
+.zap-flutuante__bola{position:relative;isolation:isolate;display:grid;place-items:center;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;box-shadow:0 10px 28px -8px rgba(18,140,74,.65),0 2px 6px rgba(0,0,0,.25);transition:transform .2s var(--ease),background .2s}
+.zap-flutuante__bola svg{width:34px;height:34px}
+.zap-flutuante__bola::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;z-index:-1;animation:zapPulso 2.4s ease-out infinite}
+.zap-flutuante__rotulo{background:#fff;color:#0A1628;font:600 14px Montserrat,sans-serif;padding:10px 14px;border-radius:999px;box-shadow:0 8px 22px -10px rgba(0,0,0,.45);white-space:nowrap;display:none}
+.zap-flutuante:hover .zap-flutuante__bola{transform:scale(1.06);background:#1EBE5A}
+@media (min-width:900px){.zap-flutuante{right:28px;bottom:28px}.zap-flutuante__rotulo{display:block}}
+@keyframes zapPulso{0%{transform:scale(1);opacity:.55}80%,100%{transform:scale(1.55);opacity:0}}
+@media (prefers-reduced-motion:reduce){.zap-flutuante__bola::before{animation:none}.zap-flutuante{transition:none}}
 
 /* ---------- entrada suave ---------- */
 .js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -304,7 +318,7 @@ p{margin:0}
 <header class="topo">
   <div class="wrap">
     <a class="marca" href="#inicio" aria-label="Sílvio Filho Advocacia — início">
-      <img src="/img/logo-h-gold.webp" alt="Sílvio Filho Advocacia" width="242" height="44">
+      <img src="/img/logo-h-gold.svg" alt="Sílvio Filho Advocacia" width="263" height="50">
     </a>
     <nav aria-label="Seções da página">
       <a href="#situacoes">Situações</a>
@@ -321,7 +335,7 @@ p{margin:0}
 <!-- HERO -->
 <section class="hero dark" aria-labelledby="h1">
   <div class="hero__foto">
-    <img src="/img/fotos/hero-1400.webp" srcset="/img/fotos/hero-800.webp 800w, /img/fotos/hero-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 60vw" width="1400" height="934" alt="Trabalhador de braços cruzados em um centro de distribuição" fetchpriority="high" decoding="async">
+    <img src="/img/fotos/hero-1400.webp" srcset="/img/fotos/hero-800.webp 800w, /img/fotos/hero-1400.webp 1400w, /img/fotos/hero-1920.webp 1920w" sizes="100vw" width="1920" height="1280" alt="Trabalhadores com uniforme de segurança caminhando em um centro de distribuição" fetchpriority="high" decoding="async">
   </div>
   <div class="wrap">
     <div class="hero__texto">
@@ -516,7 +530,7 @@ p{margin:0}
 
 <!-- DESTAQUE: adoecimento -->
 <section class="destaque" aria-labelledby="dest-t">
-  <img src="/img/fotos/doenca-1400.webp" srcset="/img/fotos/doenca-800.webp 800w, /img/fotos/doenca-1400.webp 1400w" sizes="100vw" width="1400" height="933" alt="" loading="lazy" decoding="async">
+  <img src="/img/fotos/saude-1400.webp" srcset="/img/fotos/saude-800.webp 800w, /img/fotos/saude-1400.webp 1400w, /img/fotos/saude-1920.webp 1920w" sizes="100vw" width="1920" height="1280" alt="" loading="lazy" decoding="async">
   <div class="wrap">
     <div class="conteudo rv">
       <span class="kicker on-dark">Saúde e trabalho</span>
@@ -552,7 +566,7 @@ p{margin:0}
 <!-- ESCRITÓRIO -->
 <section class="sec" aria-labelledby="es-t">
   <div class="wrap esc">
-    <img class="esc__selo rv" src="/img/selo-navy.webp" width="525" height="481" alt="Selo Sílvio Filho Advocacia" loading="lazy" decoding="async">
+    <div class="esc__marca rv"><img src="/img/logo-gold.svg" width="380" height="175" alt="Sílvio Filho Advocacia" loading="lazy" decoding="async"></div>
     <div class="rv">
       <span class="kicker">O escritório</span>
       <h2 id="es-t" class="t-lg">Atuação dedicada a <span class="ouro">quem trabalha</span></h2>
@@ -633,7 +647,7 @@ p{margin:0}
 
 <footer class="rodape">
   <div class="wrap">
-    <img src="/img/logo-cream.webp" width="134" height="64" alt="Sílvio Filho Advocacia" loading="lazy" decoding="async">
+    <img src="/img/logo-cream.svg" width="165" height="76" alt="Sílvio Filho Advocacia" loading="lazy" decoding="async">
     <div class="info">
       <p>Maringá · Paraná</p>
       <!-- OAB: inserir aqui a inscrição do advogado, ex.: <p>OAB/PR nº 00.000</p> -->
@@ -642,9 +656,12 @@ p{margin:0}
   </div>
 </footer>
 
-<div class="barra" id="barra">
-  <a class="btn btn-ouro" href="#formulario" data-cta="barra-mobile">Quero orientação</a>
-</div>
+<a class="zap-flutuante" id="zap-flutuante" href="#formulario" data-cta="whatsapp-flutuante" aria-label="Falar com o escritório pelo WhatsApp">
+  <span class="zap-flutuante__rotulo">Fale pelo WhatsApp</span>
+  <span class="zap-flutuante__bola" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C8.86 3 3.03 8.82 3.03 16c0 2.3.6 4.53 1.74 6.5L3 29l6.68-1.74A12.94 12.94 0 0 0 16.04 29C23.2 29 29 23.18 29 16S23.2 3 16.04 3zm0 23.68c-1.97 0-3.9-.53-5.58-1.530l-.4-.24-3.96 1.04 1.06-3.86-.26-.4A10.63 10.63 0 0 1 5.33 16c0-5.9 4.8-10.7 10.71-10.7 5.9 0 10.66 4.8 10.66 10.7 0 5.9-4.77 10.68-10.66 10.68zm5.86-8c-.32-.16-1.9-.94-2.2-1.04-.3-.11-.51-.16-.73.16-.21.32-.83 1.04-1.02 1.26-.19.21-.37.24-.7.08-.31-.16-1.35-.5-2.570-1.59-.95-.85-1.59-1.9-1.78-2.22-.18-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.85.4-.3.32-1.12 1.09-1.12 2.66 0 1.570 1.150 3.090 1.300 3.300.17.21 2.26 3.45 5.47 4.84.77.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.3-.21-.61-.37z"/></svg>
+  </span>
+</a>
 
 <script>
 /* ===========================================================================
@@ -744,19 +761,23 @@ if ("IntersectionObserver" in window){
   document.querySelectorAll(".rv").forEach(el => el.classList.add("on"));
 }
 
-/* ---------- barra fixa no celular ---------- */
-const barra = document.getElementById("barra");
+/* ---------- botão flutuante: aparece depois do hero e some no formulário ---------- */
+const flut = document.getElementById("zap-flutuante");
 const secForm = document.getElementById("formulario");
+const hero = document.querySelector(".hero");
 let tic = false;
 function onScroll(){
   if (tic) return; tic = true;
   requestAnimationFrame(() => {
-    const topoForm = secForm.getBoundingClientRect().top;
-    barra.classList.toggle("on", window.scrollY > 560 && topoForm > window.innerHeight * .75);
+    const passouHero = hero.getBoundingClientRect().bottom < window.innerHeight * .55;
+    const f = secForm.getBoundingClientRect();
+    const noForm = f.top < window.innerHeight * .8 && f.bottom > window.innerHeight * .2;
+    flut.classList.toggle("on", passouHero && !noForm);
     tic = false;
   });
 }
 window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
 
 /* ---------- formulário ---------- */
 const form = document.getElementById("form");
