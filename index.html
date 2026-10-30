@@ -118,11 +118,11 @@ p{margin:0}
 
 /* ---------- hero (texto centralizado sobre foto em tela cheia) ---------- */
 .hero{position:relative;background:var(--navy-950);overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:center;min-height:calc(100svh - 76px);max-height:900px}
-.hero__foto{position:absolute;inset:0;z-index:-2}
-.hero__foto img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.hero__foto{position:absolute;inset:0;z-index:-2;overflow:hidden;background:var(--navy-950)}
+.hero__foto img{object-position:50% 45%;opacity:.36}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
-  radial-gradient(ellipse 70% 60% at 50% 50%,rgba(6,14,26,.72) 0%,rgba(6,14,26,.55) 55%,rgba(6,14,26,.35) 100%),
-  linear-gradient(180deg,rgba(6,14,26,.55) 0%,rgba(6,14,26,.15) 35%,rgba(6,14,26,.25) 65%,rgba(10,22,40,.95) 100%)}
+  radial-gradient(ellipse 65% 55% at 50% 50%,rgba(6,14,26,.45) 0%,rgba(6,14,26,0) 100%),
+  linear-gradient(180deg,rgba(6,14,26,.35) 0%,rgba(6,14,26,0) 30%,rgba(6,14,26,0) 70%,var(--navy) 100%)}
 .hero__texto{position:relative;max-width:880px;margin:0 auto;padding:88px 0 72px;text-align:center}
 .hero__texto .kicker{color:var(--gold-hi)}
 .hero__texto .filete{margin:24px auto}
@@ -202,7 +202,7 @@ p{margin:0}
 
 /* ---------- destaque doença ---------- */
 .destaque{position:relative;overflow:hidden;isolation:isolate;background:var(--navy-950);color:var(--on-dark)}
-.destaque img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 35%;z-index:-2;opacity:.5}
+.destaque > img{object-position:62% 35%;z-index:-2;opacity:.5}
 .destaque::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,14,26,.55),rgba(6,14,26,.92))}
 .destaque .wrap{padding-top:96px;padding-bottom:96px;text-align:center}
 .destaque .filete{margin:24px auto}
@@ -214,7 +214,7 @@ p{margin:0}
 .sigilo svg{flex:none;width:20px;height:20px;color:var(--gold)}
 @media (min-width:900px){
   .destaque::before{background:linear-gradient(90deg,rgba(6,14,26,.96) 0%,rgba(6,14,26,.86) 45%,rgba(6,14,26,.25) 100%)}
-  .destaque img{opacity:1}
+  .destaque > img{opacity:1}
   .destaque .wrap{text-align:left;padding-top:140px;padding-bottom:140px}
   .destaque .conteudo{max-width:600px}
   .destaque .filete{margin:28px 0}
@@ -281,8 +281,8 @@ p{margin:0}
   .form-grid{grid-template-columns:minmax(0,1fr) 440px;gap:80px}
   .form-texto{text-align:left}
   .form-texto .filete{margin:28px 0}
-  .form-foto{display:block;position:absolute;inset:0 auto 0 0;width:52%;z-index:-2}
-  .form-foto img{width:100%;height:100%;object-fit:cover;opacity:.32}
+  .form-foto{display:block;position:absolute;inset:0 auto 0 0;width:52%;z-index:-2;overflow:hidden}
+  .form-foto img{opacity:.32}
   .form-sec::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,22,40,.55) 0%,var(--navy) 55%)}
   .form-card{padding:36px 34px}
 }
@@ -305,6 +305,10 @@ p{margin:0}
 @media (min-width:900px){.zap-flutuante{right:28px;bottom:28px}.zap-flutuante__rotulo{display:block}}
 @keyframes zapPulso{0%{transform:scale(1);opacity:.55}80%,100%{transform:scale(1.55);opacity:0}}
 @media (prefers-reduced-motion:reduce){.zap-flutuante__bola::before{animation:none}.zap-flutuante{transition:none}}
+
+/* ---------- parallax das imagens de fundo ---------- */
+[data-parallax]{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;will-change:transform;transform:translate3d(0,0,0)}
+@media (prefers-reduced-motion:reduce){[data-parallax]{top:0;height:100%;transform:none !important}}
 
 /* ---------- entrada suave ---------- */
 .js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -335,7 +339,7 @@ p{margin:0}
 <!-- HERO -->
 <section class="hero dark" aria-labelledby="h1">
   <div class="hero__foto">
-    <img src="/img/f2/hero-1400.webp" srcset="/img/f2/hero-800.webp 800w, /img/f2/hero-1400.webp 1400w, /img/f2/hero-1920.webp 1920w" sizes="100vw" width="1920" height="1280" alt="Trabalhadores com uniforme de segurança caminhando em um centro de distribuição" fetchpriority="high" decoding="async">
+    <img data-parallax src="/img/f2/hero-1400.webp" srcset="/img/f2/hero-800.webp 800w, /img/f2/hero-1400.webp 1400w, /img/f2/hero-1920.webp 1920w" sizes="100vw" width="1920" height="1280" alt="Trabalhadores com uniforme de segurança caminhando em um centro de distribuição" fetchpriority="high" decoding="async">
   </div>
   <div class="wrap">
     <div class="hero__texto">
@@ -530,7 +534,7 @@ p{margin:0}
 
 <!-- DESTAQUE: adoecimento -->
 <section class="destaque" aria-labelledby="dest-t">
-  <img src="/img/f2/saude-1400.webp" srcset="/img/f2/saude-800.webp 800w, /img/f2/saude-1400.webp 1400w, /img/f2/saude-1920.webp 1920w" sizes="100vw" width="1920" height="1280" alt="" loading="lazy" decoding="async">
+  <img data-parallax src="/img/f2/saude-1400.webp" srcset="/img/f2/saude-800.webp 800w, /img/f2/saude-1400.webp 1400w, /img/f2/saude-1920.webp 1920w" sizes="100vw" width="1920" height="1280" alt="" loading="lazy" decoding="async">
   <div class="wrap">
     <div class="conteudo rv">
       <span class="kicker on-dark">Saúde e trabalho</span>
@@ -603,7 +607,7 @@ p{margin:0}
 <!-- FORMULÁRIO -->
 <section id="formulario" class="sec form-sec dark" aria-labelledby="fm-t">
   <div class="form-foto" aria-hidden="true">
-    <img src="/img/f2/contato-1400.webp" width="1400" height="933" alt="" loading="lazy" decoding="async">
+    <img data-parallax src="/img/f2/contato-1400.webp" width="1400" height="933" alt="" loading="lazy" decoding="async">
   </div>
   <div class="wrap form-grid">
     <div class="form-texto rv">
@@ -760,6 +764,28 @@ if ("IntersectionObserver" in window){
 } else {
   document.querySelectorAll(".rv").forEach(el => el.classList.add("on"));
 }
+
+/* ---------- parallax das imagens de fundo ---------- */
+(function(){
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const imgs = [...document.querySelectorAll("[data-parallax]")];
+  if (!imgs.length) return;
+  let pend = false;
+  function mover(){
+    pend = false;
+    const vh = window.innerHeight;
+    imgs.forEach(img => {
+      const box = img.parentElement.getBoundingClientRect();
+      if (box.bottom < -50 || box.top > vh + 50 || !box.height) return;
+      const p = (box.top + box.height / 2 - vh / 2) / (vh / 2 + box.height / 2);
+      img.style.transform = "translate3d(0," + (-p * box.height * 0.1).toFixed(1) + "px,0)";
+    });
+  }
+  function pedir(){ if (!pend){ pend = true; requestAnimationFrame(mover); } }
+  window.addEventListener("scroll", pedir, {passive:true});
+  window.addEventListener("resize", pedir);
+  mover();
+})();
 
 /* ---------- botão flutuante: aparece depois do hero e some no formulário ---------- */
 const flut = document.getElementById("zap-flutuante");
