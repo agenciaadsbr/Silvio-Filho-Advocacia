@@ -3,7 +3,7 @@
 // As fotos são versões LICENCIADAS do Freepik (sem marca d'água), já
 // convertidas para WebP e guardadas no Supabase "ADS BR CLIENTES",
 // bucket público lp-assets, pasta silvio-filho/fotos/. O build copia
-// cada arquivo para dist/img/fotos, então a página serve as imagens pelo
+// cada arquivo para dist/img/f2 (pasta versionada: ao trocar fotos, mude para f3 para furar o cache), então a página serve as imagens pelo
 // próprio domínio (mais rápido e sem depender do Supabase no carregamento).
 //
 // Para trocar uma foto: suba o novo WebP no bucket com o mesmo nome
@@ -53,7 +53,7 @@ async function baixar(arquivo) {
   }
 }
 
-await mkdir(join(DIST, "img", "fotos"), { recursive: true });
+await mkdir(join(DIST, "img", "f2"), { recursive: true });
 for (const f of PAGINAS) await copyFile(f, join(DIST, f));
 await copiarPasta("img", join(DIST, "img"));
 
