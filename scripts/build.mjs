@@ -60,7 +60,7 @@ await copiarPasta("img", join(DIST, "img"));
 for (const [nome, larguras] of Object.entries(FOTOS)) {
   for (const w of larguras) {
     const arquivo = `${nome}-${w}.webp`;
-    await writeFile(join(DIST, "img", "fotos", arquivo), await baixar(arquivo));
+    await writeFile(join(DIST, "img", "f2", arquivo), await baixar(arquivo));
   }
   console.log(`[fotos] ${nome} ok`);
 }
